@@ -1472,6 +1472,11 @@
     "v8flags" "^3.0.0"
     "yn" "^2.0.0"
 
+"tsc@^2.0.4":
+  "integrity" "sha512-fzoSieZI5KKJVBYGvwbVZs/J5za84f2lSTLPYf6AGiIf43tZ3GNrI1QzTLcjtyDDP4aLxd46RTZq1nQxe7+k5Q=="
+  "resolved" "https://registry.npmjs.org/tsc/-/tsc-2.0.4.tgz"
+  "version" "2.0.4"
+
 "tsconfig@^6.0.0":
   "integrity" "sha1-aw6DdgA9evGGT434+J3QBZ/80DI="
   "resolved" "https://registry.npmjs.org/tsconfig/-/tsconfig-6.0.0.tgz"
