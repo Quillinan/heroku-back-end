@@ -4,7 +4,7 @@ import {getProdutos, saveProduto, getProduto, updateProduto, removeProduto} from
 const routes = Router()
 
 routes.get('/', (request: Request, response: Response) => {
-    return response.json({message: 'Teste nodemon'})
+    return response.json({message: 'Server online'})
 })
 
 routes.get('/produtos', getProdutos)
