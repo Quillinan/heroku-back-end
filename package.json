@@ -1,6 +1,6 @@
 {
    "name": "produtos",
-   "version": "0.0.1",
+   "version": "1.0.0",
    "description": "Awesome project developed with TypeORM.",
    "devDependencies": {
       "@types/cors": "^2.8.12",
