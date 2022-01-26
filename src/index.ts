@@ -10,13 +10,13 @@ dotenv.config();
 
 const app = express();
 createConnection();
-app.options('*', cors());
-app.get('/products/:id', cors(), function (req, res, next) {
-  res.json({ msg: 'This is CORS-enabled for all origins!' });
-});
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+};
 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80');
+app.get('/products/:id', cors(corsOptions), function (req, res, next) {
+  res.json({ msg: 'This is CORS-enabled for only example.com.' });
 });
 app.use(cors());
 app.use(bodyParser.json());
