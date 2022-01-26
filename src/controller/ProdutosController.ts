@@ -18,8 +18,12 @@ export const getProduto = async (request: Request, response: Response) => {
 };
 
 export const saveProduto = async (request: Request, response: Response) => {
-  const produtos = await getRepository(Produtos).save(request.body);
-  return response.json(produtos);
+  try {
+    const produtos = await getRepository(Produtos).save(request.body);
+    return response.status(200).json(produtos);
+  } catch (error) {
+    return response.status(500).json(error);
+  }
 };
 
 export const updateProduto = async (request: Request, response: Response) => {
