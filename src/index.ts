@@ -10,13 +10,9 @@ dotenv.config();
 
 const app = express();
 createConnection();
-const corsOptions = {
-  origin: 'http://localhost:3000/',
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-app.get('/products/:id', cors(corsOptions), function (req, res, next) {
-  res.json({ msg: 'This is CORS-enabled for only example.com.' });
+app.options('*', cors());
+app.get('/products/:id', cors(), function (req, res, next) {
+  res.json({ msg: 'This is CORS-enabled for all origins!' });
 });
 
 app.listen(80, function () {
