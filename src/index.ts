@@ -8,16 +8,25 @@ import routes from './routes';
 
 dotenv.config();
 
-const app = express();
-createConnection();
-const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
+var allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization, Content-Length, X-Requested-With'
+  );
+
+  // intercept OPTIONS method
+  if ('OPTIONS' == req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
 };
 
-app.get('/products/:id', cors(corsOptions), function (req, res, next) {
-  res.json({ msg: 'This is CORS-enabled for only example.com.' });
-});
+const app = express();
+createConnection();
+app.use(allowCrossDomain);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(routes);
