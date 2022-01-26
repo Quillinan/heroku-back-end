@@ -3,8 +3,12 @@ import { Request, Response } from 'express';
 import { Produtos } from '../entity/Produtos';
 
 export const getProdutos = async (request: Request, response: Response) => {
-  const produtos = await getRepository(Produtos).find();
-  return response.json(produtos);
+  try {
+    const produtos = await getRepository(Produtos).find();
+    return response.status(200).json(produtos);
+  } catch (err) {
+    return response.status(500).json(err);
+  }
 };
 
 export const getProduto = async (request: Request, response: Response) => {
