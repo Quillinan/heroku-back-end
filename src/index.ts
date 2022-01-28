@@ -7,11 +7,14 @@ import * as cors from 'cors';
 import routes from './routes';
 
 dotenv.config();
+const start = async () => {
+  const app = express();
+  const connection = await createConnection();
+  connection.synchronize;
+  app.use(cors());
+  app.use(bodyParser.json());
+  app.use(routes);
 
-const app = express();
-createConnection();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(routes);
-
-app.listen(process.env.PORT || 3333);
+  app.listen(process.env.PORT || 3333);
+};
+start();
